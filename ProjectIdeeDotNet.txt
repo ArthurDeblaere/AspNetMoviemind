@@ -1,0 +1,9 @@
+Mijn project zou een social platform voor films zijn. Inspiratie is opgedaan bij sites zoals IMDB en Letterboxd.
+Een gebruiker kan reviews schrijven over een film waar hij een datum, score en eventuele beschrijving kan toevoegen. 
+Deze kunnen dan op een ander moment bewerkt of verwijderd worden.
+Een user heeft de optie om een film als favoriet aan te duiden.
+De user kan ook iemand volgen en daar op de landing page informatie van zien.
+Ik zou er een social (Facebook) login aan koppelen waar de gebruiker facebookvrienden die op deze site actief zijn ook direct kan volgen.
+
+Het diagram is gemaakt met MYSQl workbench dus dit moet nog omgezet worden naar een SQL-databank.
+De longtext datatype wordt een varchar(max) in SQL. Datetime moet normaal geen probleem zijn.

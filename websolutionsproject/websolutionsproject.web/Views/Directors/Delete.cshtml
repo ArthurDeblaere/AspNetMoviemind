@@ -1,0 +1,16 @@
+﻿@model websolutionsproject.models.Directors.GetDirectorModel
+
+@{
+    ViewData["Title"] = Localizer["Delete director"];
+}
+
+<h3>@Localizer["Are you sure you want to delete this director?"]</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h4>
+    <hr />
+
+    <form asp-action="Delete">
+        <input type="submit" value="@Localizer["Delete"]" class="btn btn-danger" />
+        <a class="btn btn-info" asp-action="Index">@Localizer["Back to directors"]</a>
+    </form>
+</div>

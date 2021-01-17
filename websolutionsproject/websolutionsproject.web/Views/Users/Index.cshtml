@@ -1,0 +1,39 @@
+﻿@model IEnumerable<websolutionsproject.models.Users.GetUserModel>
+
+@{
+    ViewData["Title"] = Localizer["All users"];
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+}
+
+<h1>@Localizer["All users"]</h1>
+<hr />
+
+<ul class="thumbnails">
+    @foreach (GetUserModel getUserModel in Model)
+    {
+        <li class="span4">
+            <div class="thumbnail">
+                <h3><a href="@Url.Action("Delete", "Users", new { id = getUserModel.Id })">@Html.DisplayFor(modelItem => getUserModel.UserName)</a></h3>
+                <p class="thumbnailDescription">@Html.DisplayFor(modelItem => getUserModel.Description)</p>
+                <p class="text-sm-left">@getUserModel.Favorites.Count @Localizer["favorites"]</p>
+                <p class="text-sm-left">@getUserModel.Reviews.Count @Localizer["reviews"]</p>
+                <p class="text-sm-left">@getUserModel.Followers.Count @Localizer["followers"]</p>
+                @if (user.IsInRole("Administrator"))
+                {
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Users", new { id = getUserModel.Id })">@Localizer["Delete"]</a>
+                    <a class="btn btn-info" href="@Url.Action("Edit", "Users", new { id = getUserModel.Id })">@Localizer["Edit"]</a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Users", new { id = getUserModel.Id })">Details</a>
+                }
+                else if (user.IsInRole("Editor"))
+                {
+                    <a class="btn btn-info" href="@Url.Action("Edit", "Users", new { id = getUserModel.Id })">@Localizer["Edit"]</a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Users", new { id = getUserModel.Id })">Details</a>
+                }
+                else if (user.IsInRole("Guest"))
+                {
+                    <a class="btn btn-success" href="@Url.Action("Details", "Users", new { id = getUserModel.Id })">Details</a>
+                }
+            </div>
+        </li>
+    }
+</ul>

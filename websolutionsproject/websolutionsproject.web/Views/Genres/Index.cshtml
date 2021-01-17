@@ -1,0 +1,26 @@
+﻿@model IEnumerable<websolutionsproject.models.Genres.GetGenreModel>
+@using websolutionsproject.models.Genres
+
+@{
+    ViewData["Title"] = Localizer["All genres"];
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+
+}
+
+<h1>@Localizer["All genres"]</h1>
+
+@if (user.IsInRole("Editor") || user.IsInRole("Administrator"))
+{
+    <p>
+        <a class="btn btn-primary" asp-action="Create">@Localizer["Create new genre"]</a>
+    </p>
+}
+
+<div class="row row-flex">
+    @foreach (GetGenreModel getGenreModel in Model)
+    {
+        <div class="d-inline-block col-md-4 col-sm-6 col-xs-12 p-3 my-2 mx-2 border rounded border-success">
+            <h3><a href="@Url.Action("Details", "Genres", new { id = getGenreModel.Id })">@getGenreModel.Name</a></h3>
+        </div>
+    }
+</div>

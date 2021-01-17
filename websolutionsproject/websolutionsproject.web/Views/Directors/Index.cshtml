@@ -1,0 +1,42 @@
+﻿@model IEnumerable<websolutionsproject.models.Directors.GetDirectorModel>
+
+@{
+    ViewData["Title"] = Localizer["All directors"];
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+}
+
+<h1>@Localizer["All directors"]</h1>
+
+@if (user.IsInRole("Editor"))
+{
+    <a class="btn btn-primary" asp-action="Create">@Localizer["Create new director"]</a>
+}
+
+<ul class="thumbnails">
+    @foreach (GetDirectorModel director in Model)
+    {
+        <li class="span4">
+            <div class="thumbnail">
+                <h3>@Html.DisplayFor(modelItem => director.FirstName) @Html.DisplayFor(modelItem => director.LastName)</h3>
+                <h4>@Html.DisplayFor(modelItem => director.Nationality)</h4>
+                <p class="thumbnailDescription">@Html.DisplayFor(modelItem => director.Description)</p>
+                <p class="text-sm-left">@Localizer["Directed"] @director.Movies.Count @Localizer["movies"]</p>
+                @if (user.IsInRole("Administrator"))
+                {
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Directors", new { id = director.Id })">@Localizer["Delete"]</a>
+                    <a class="btn btn-info" href="@Url.Action("Edit", "Directors", new { id = director.Id })">@Localizer["Edit"]</a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Directors", new { id = director.Id })">@Localizer["Details"]</a>
+                }
+                else if (user.IsInRole("Editor"))
+                {
+                    <a class="btn btn-info" href="@Url.Action("Edit", "Directors", new { id = director.Id })">@Localizer["Edit"]</a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Directors", new { id = director.Id })">@Localizer["Details"]</a>
+                }
+                else if (user.IsInRole("Guest"))
+                {
+                    <a class="btn btn-success" href="@Url.Action("Details", "Directors", new { id = director.Id })">@Localizer["Details"]</a>
+                }
+            </div>
+        </li>
+    }
+</ul>

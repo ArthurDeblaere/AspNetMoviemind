@@ -1,0 +1,48 @@
+﻿@model IEnumerable<websolutionsproject.models.Actors.GetActorModel>
+
+@{
+    ViewData["Title"] = @Localizer["All actors"];
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+}
+
+<h1>@Localizer["All actors"]</h1>
+
+@if (user.IsInRole("Editor") || user.IsInRole("Administrator"))
+{
+
+    <a class="btn btn-primary" asp-action="Create">@Localizer["Create new actor"]</a>
+}
+
+<ul class="thumbnails">
+    @foreach (var actor in Model)
+    {
+        <li class="span4">
+            <div class="thumbnail">
+                <h3>@Html.DisplayFor(modelItem => actor.FirstName) @Html.DisplayFor(modelItem => actor.LastName)</h3>
+                <h4>@Html.DisplayFor(modelItem => actor.Nationality)</h4>
+                <p class="thumbnailDescription">@Html.DisplayFor(modelItem => actor.Description)</p>
+                <p class="text-sm-left">
+                    @Localizer["Plays in"]: @actor.Movies.Count @Localizer["movies"]</p>
+                    @if(user.IsInRole("Administrator"))
+                    {
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Actors", new { id = actor.Id })">@Localizer["Delete"]</a>
+                    <a class="btn btn-info" href="@Url.Action("Edit", "Actors", new { id = actor.Id })">@Localizer["Edit"]</a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Actors", new { id = actor.Id })">@Localizer["Details"]</a>
+                    }
+                    else if (user.IsInRole("Editor"))
+                    {
+                        <a class="btn btn-info" href="@Url.Action("Edit", "Actors", new { id = actor.Id })">@Localizer["Edit"]</a>
+                        <a class="btn btn-success" href="@Url.Action("Details", "Actors", new { id = actor.Id })">@Localizer["Details"]</a>
+                    }
+                    else if (user.IsInRole("Guest"))
+                    {
+                    <a class="btn btn-success" href="@Url.Action("Details", "Actors", new { id = actor.Id })">@Localizer["Details"]</a>
+                    }
+            </div>
+        </li>
+    }
+</ul>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

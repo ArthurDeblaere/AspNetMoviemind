@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "ActorSelectMovies";
+}
+
+@foreach(GetMovieModel movie in Model)
+{
+    <option class="multioption" value="@movie.Id">@movie.Name</option>
+}
+

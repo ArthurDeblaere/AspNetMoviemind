@@ -1,0 +1,1009 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>websolutionsproject.api</name>
+    </assembly>
+    <members>
+        <member name="M:websolutionsproject.api.Controllers.ActorMoviesController.GetActorMovie(System.String)">
+             <summary>
+             Get a specific actormovie.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/actormovies/{id}
+            
+             </remarks>
+             <returns>GetActorMovieModel</returns>
+             <response code="200">Returns the actormovie</response>
+             <response code="404">No actormovies were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorMoviesController.GetActorMovies">
+             <summary>
+             Get a list of actormoviemodels
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/actormovies
+            
+             </remarks>
+             <returns>List of GetActorMovieModel</returns>
+             <response code="200">Returns the list of actor movies</response>
+             <response code="404">No actors were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorMoviesController.PostActorMovie(websolutionsproject.models.ActorMovies.PostActorMovieModel)">
+             <summary>
+             Creates an actormovie.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/actormovies
+                 {
+                    "ActorId": "09185c8a-852f-4ca4-b86c-35a6f7d02cbc",
+                    "MovieId": "87248dea-44c2-4d03-8f01-f633a936ff5d"
+                 }
+            
+             </remarks>
+             <param name="postActorMovieModel"></param>
+             <returns>A newly created actormovie</returns>
+             <response code="201">Returns the newly created actormovie</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorMoviesController.DeleteUserFollower(System.String)">
+             <summary>
+             Deletes an actor movie model.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/actormovies/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The user follower could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorsController.GetActors">
+             <summary>
+             Get a list of all actors.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/actors
+            
+             </remarks>
+             <returns>List of GetActorModel</returns>
+             <response code="200">Returns the list of actors</response>
+             <response code="404">No actors were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorsController.GetActor(System.String)">
+             <summary>
+             Get a specific actor.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/actors/{id}
+            
+             </remarks>
+             <returns>GetActorModel</returns>
+             <response code="200">Returns the actor</response>
+             <response code="404">No actors were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorsController.PostActor(websolutionsproject.models.Actors.PostActorModel)">
+             <summary>
+             Creates an actor.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/actors
+                 {
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "Nationality": "American",
+                    "Birth": "01/07/1970",
+                    "Description": "New user"
+                 }
+            
+             </remarks>
+             <param name="postActorModel"></param>
+             <returns>A newly created actor</returns>
+             <response code="201">Returns the newly created actor</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorsController.PutActor(System.String,websolutionsproject.models.Actors.PutActorModel)">
+             <summary>
+             Updates an actor.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/actors/{id}
+                 {
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "Nationality": "American",
+                    "Birth": "01/07/1970",
+                    "Description": "New user"
+                 }
+            
+             </remarks>
+             <param name="id"></param>   
+             <param name="putActorModel"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The actor could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ActorsController.DeleteActor(System.String)">
+             <summary>
+             Deletes an actor.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/actors/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The actor could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.DirectorsController.GetDirectors">
+             <summary>
+             Get a list of all directors.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/directors
+            
+             </remarks>
+             <returns>List of GetDirectorModel</returns>
+             <response code="200">Returns the list of directors</response>
+             <response code="404">No directors were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.DirectorsController.GetDirector(System.String)">
+             <summary>
+             Get a specific director.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/directors/{id}
+            
+             </remarks>
+             <returns>GetDirectorModel</returns>
+             <response code="200">Returns the directors</response>
+             <response code="404">No directors were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.DirectorsController.PostDirector(websolutionsproject.models.Directors.PostDirectorModel)">
+             <summary>
+             Creates an director.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/directors
+                 {
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "Nationality": "American",
+                    "Birth": "01/07/1970",
+                    "Description": "New director"
+                 }
+            
+             </remarks>
+             <param name="postDirectorModel"></param>
+             <returns>A newly created director</returns>
+             <response code="201">Returns the newly created director</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response>
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.DirectorsController.PutDirector(System.String,websolutionsproject.models.Directors.PutDirectorModel)">
+             <summary>
+             Updates a director.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/directors/{id}
+                 {
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "Nationality": "American",
+                    "Birth": "01/07/1970",
+                    "Description": "New description for this director"
+                 }
+            
+             </remarks>
+             <param name="id"></param>   
+             <param name="putDirectorModel"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The director could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.DirectorsController.DeleteDirector(System.String)">
+             <summary>
+             Deletes a director.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/directors/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The director could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.FavoritesController.GetFavorites">
+             <summary>
+             Get all favorites.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/favorites
+            
+             </remarks>
+             <returns>List of GetFavoriteModel</returns>
+             <response code="200">Returns the favorites</response>
+             <response code="404">No favorites or user were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.FavoritesController.GetFavorite(System.String)">
+             <summary>
+             Get specific favorite.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/favorites/{id}
+            
+             </remarks>
+             <returns>GetFavoriteModel</returns> 
+             <response code="200">Returns the favorite movie</response>
+             <response code="404">No favorite or user were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.FavoritesController.PostFavorite(websolutionsproject.models.Favorites.PostFavoriteModel)">
+             <summary>
+             Creates an favorite relationship.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users/favorites
+                 {
+                    "UserId": "7138ec7e-d694-4333-8118-8791abe50fb3",
+                    "MovieId": "1726dcb8-7e3d-47e5-ba71-134fe7c5de5d"
+                 }
+            
+             </remarks>
+             <param name="postFavoriteModel"></param>
+             <returns>A newly created favorite</returns>
+             <response code="201">Returns the newly created favorite</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.FavoritesController.PutFavorite(System.String,websolutionsproject.models.Favorites.PutFavoriteModel)">
+             <summary>
+             Updates a favorite.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/favorites/{id}
+                 {
+                    "UserId": "7138ec7e-d694-4333-8118-8791abe50fb3",
+                    "MovieId": "aabf57da-014a-4cd8-8fc3-d07bd45042ca"
+                 }
+            
+             </remarks>
+             <param name="id"></param>   
+             <param name="putFavoriteModel"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The user or favorite could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.FavoritesController.DeleteFavorite(System.String)">
+             <summary>
+             Deletes a favorite
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/favorites/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The user or favorite could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.GenresController.GetGenres">
+             <summary>
+             Get a list of all genres.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/genres
+            
+             </remarks>
+             <returns>List of GetGenreModel</returns>
+             <response code="200">Returns the list of genres</response>
+             <response code="404">No genres were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.GenresController.GetGenre(System.String)">
+             <summary>
+             Get a specific genre.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/genres/{id}
+            
+             </remarks>
+             <returns>GetGenreModel</returns>
+             <response code="200">Returns the genre</response>
+             <response code="404">No genres were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.GenresController.PostGenre(websolutionsproject.models.Genres.PostGenreModel)">
+             <summary>
+             Creates an genre.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/genres
+                 {
+                    "Name": "Action"
+                 }
+            
+             </remarks>
+             <param name="postGenreModel"></param>
+             <returns>A newly created genre</returns>
+             <response code="201">Returns the newly created genre</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.GenresController.PutGenre(System.String,websolutionsproject.models.Genres.PutGenreModel)">
+             <summary>
+             Updates a genre.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/genres/{id}
+                 {
+                    "Name": "Action"
+                 }
+            
+             </remarks>
+             <param name="id"></param>   
+             <param name="putGenreModel"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The genre could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.GenresController.DeleteGenre(System.String)">
+             <summary>
+             Deletes a genre.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/genres/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The genre could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.MoviesController.GetMovies">
+             <summary>
+             Get a list of all movies.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/movies
+            
+             </remarks>
+             <returns>List of GetMovieModel</returns>
+             <response code="200">Returns the list of movies</response>
+             <response code="404">No movies were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.MoviesController.GetMovie(System.String)">
+             <summary>
+             Get a specific actor.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/movies/{id}
+            
+             </remarks>
+             <returns>GetMovieModel</returns>
+             <response code="200">Returns the movie</response>
+             <response code="404">No movie were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.MoviesController.PostMovie(websolutionsproject.models.Movies.PostMovieModel)">
+             <summary>
+             Creates a movie.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/movies
+                 {
+                    "Name": "Movie",
+                    "Year": 2020,
+                    "OverallRating": 8,
+                    "Duration": 124,
+                    "DirectorId": "5a0b0cc7-aa58-41e5-be77-d2a445d96769",
+                    "GenreId": "68da0009-58c7-41d4-8ba9-775626cb96ff",
+                    "Description": "A test movie starring no one."
+                 }
+            
+             </remarks>
+             <param name="postMovieModel"></param>
+             <returns>A newly created movie</returns>
+             <response code="201">Returns the newly created movie</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.MoviesController.PutMovie(System.String,websolutionsproject.models.Movies.PutMovieModel)">
+             <summary>
+             Updates a movie.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/movies
+                 {
+                    "Name": "Movie 2",
+                    "Year": 2020,
+                    "OverallRating": 8,
+                    "Duration": 124,
+                    "DirectorId": "5a0b0cc7-aa58-41e5-be77-d2a445d96769",
+                    "GenreId": "68da0009-58c7-41d4-8ba9-775626cb96ff",
+                    "Description": "A test movie starring no one."
+                 }
+            
+             </remarks>
+             <param name="id"></param>   
+             <param name="putMovieModel"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The movie could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.MoviesController.DeleteMovie(System.String)">
+             <summary>
+             Deletes a movie.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/moves/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The movie could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ReviewsController.GetReviews">
+             <summary>
+             Get a list of all reviews.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/reviews
+            
+             </remarks>
+             <returns>List of GetReviewModel</returns>
+             <response code="200">Returns the list of reviews</response>
+             <response code="404">No reviews were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ReviewsController.GetReview(System.String)">
+             <summary>
+             Get a specific review.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/reviews/{id}
+            
+             </remarks>
+             <returns>GetReviewModel</returns>
+             <response code="200">Returns the review</response>
+             <response code="404">No reviews were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ReviewsController.PostReview(websolutionsproject.models.Reviews.PostReviewModel)">
+             <summary>
+             Creates a review.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/reviews
+                 {
+                    "Description": "A fantastic movie",
+                    "Rating": 9,
+                    "Date": "07/11/2020",
+                    "UserId": "4a23fda4-c63e-4c26-be6b-3ab5e0c1381e",
+                    "MovieId": "67cf9787-789d-4463-82e8-be4e0dc71e98"
+                 }
+            
+             </remarks>
+             <param name="postReviewModel"></param>
+             <returns>A newly created review</returns>
+             <response code="201">Returns the newly created review</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ReviewsController.PutReview(System.String,websolutionsproject.models.Reviews.PutReviewModel)">
+             <summary>
+             Updates a review.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/reviews
+                 {
+                    "Description": "A moderate movie",
+                    "Rating": 6,
+                    "Date": "07/11/2020",
+                    "UserId": "4a23fda4-c63e-4c26-be6b-3ab5e0c1381e",
+                    "MovieId": "67cf9787-789d-4463-82e8-be4e0dc71e98"
+                 }
+            
+             </remarks>
+             <param name="id"></param>   
+             <param name="putReviewModel"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The review could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.ReviewsController.DeleteReview(System.String)">
+             <summary>
+             Deletes a review.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/reviews/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The review could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response>
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.RolesController.GetRoles">
+             <summary>
+             Get a list of all roles.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/roles
+            
+             </remarks>
+             <returns>List of GetRoleModel</returns>
+             <response code="200">Returns the list of roles</response>
+             <response code="404">No roles were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.RolesController.GetRole(System.String)">
+             <summary>
+             Get details of an role.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/roles/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <returns>An GetRoleModel</returns>
+             <response code="200">Returns the role</response>
+             <response code="404">The role could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.RolesController.PutRole(System.String,websolutionsproject.models.Roles.PutRoleModel)">
+             <summary>
+             Updates an role.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/roles/{id}
+                 {
+                    "Name": "Editor",
+                    "Description": "EditorAtLarge"
+                 }
+            
+             </remarks>
+             <param name="id"></param>   
+             <param name="putRoleModel"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The role could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UserFollowersController.GetUserFollowers">
+             <summary>
+             Get all userfollower models.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/userfollowers
+            
+             </remarks>
+             <returns>List of GetUserFollowerModel</returns>
+             <response code="200">Returns the user follower model</response>
+             <response code="404">No users were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+             
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UserFollowersController.GetUserFollower(System.String)">
+             <summary>
+             Get specific userfollower model.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/userfollowers/{id}
+            
+             </remarks>
+             <returns>GetUserFollowerModel</returns>
+             <response code="200">Returns the user follower model</response>
+             <response code="404">No users were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+             
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UserFollowersController.PostUserFollower(websolutionsproject.models.UserFollowers.PostUserFollowerModel)">
+             <summary>
+             Creates a user follower model.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/userfollowers
+                 {
+                    "FollowingId": "f0a23d94-0636-43bc-a084-26f93f81b727",
+                    "FollowerId": "931d6370-09cc-4dd8-8eb2-60ca06811484"
+                 }
+            
+             </remarks>
+             <param name="postUserFollowerModel"></param>
+             <returns>A newly created userfollower</returns>
+             <response code="201">Returns the newly created userfollower</response>
+             <response code="400">If something went wrong while saving into the database</response>    
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UserFollowersController.DeleteUserFollower(System.String)">
+             <summary>
+             Deletes an user follower model.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/userfollowers/{id}
+            
+             </remarks>
+             <param name="id"></param>   
+             <response code="204">Returns no content</response>
+             <response code="404">The user follower could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.GetUsers">
+             <summary>
+             Get a list of all users.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/users
+            
+             </remarks>
+             <returns>List of GetUserModel</returns>
+             <response code="200">Returns the list of users</response>
+             <response code="404">No users were found</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.GetUser(System.String)">
+             <summary>
+             Get details of an user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/users/{id}
+            
+             </remarks>
+             <param name="id"></param>     
+             <returns>An GetUserModel</returns>
+             <response code="200">Returns the user</response>
+             <response code="404">The user could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - requested user id does not match with authenticated user id</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.PostUser(websolutionsproject.models.Users.PostUserModel)">
+             <summary>
+             Creates a user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users
+                 {
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "Email": "john.doe@moviemind.com",
+                    "Password": "Azerty123"
+                 }
+            
+             </remarks>
+             <param name="postUserModel"></param>
+             <returns>A newly created user</returns>
+             <response code="201">Returns the newly created user</response>
+             <response code="400">If something went wrong while saving into the database</response>   
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.CreateResetToken(websolutionsproject.models.Users.ForgotPasswordModel)">
+             <summary>
+             Creates a reset token for a user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users/forgotpassword
+                 {
+                    "Email": "john.doe@moviemind.com",
+                 }
+            
+             </remarks>
+             <param name="forgotPasswordModel"></param>
+             <returns>A newly created user</returns>
+             <response code="201">Returns the newly created user</response>
+             <response code="400">If something went wrong while saving into the database</response>   
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.ResetPassword(websolutionsproject.models.Users.ResetPasswordModel)">
+             <summary>
+             Creates a reset password for a user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users/resetpassword
+                 {
+                    "Email": "john.doe@moviemind.com",
+                    "Token": "",
+                    "Password": "_Azerty123",
+                    "ConfirmPassword": "_Azerty123"
+                 }
+            
+             </remarks>
+             <param name="resetPasswordModel"></param>
+             <returns>A newly created user</returns>
+             <response code="201">Returns the newly created user</response>
+             <response code="400">If something went wrong while saving into the database</response>   
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.PutUser(System.String,websolutionsproject.models.Users.PutUserModel)">
+             <summary>
+             Updates a user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/users/{id}
+                 {
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "Email": "john.doe@moviemind.com",
+                    "Password": "Azerty123"
+                 }
+            
+             </remarks>
+             <param name="id"></param>     
+             <param name="putUserModel"></param>    
+             <response code="204">Returns no content</response>
+             <response code="404">The user could not be found</response> 
+             <response code="400">The id is not a valid Guid or something went wrong while saving into the database</response>
+             <response code="403">Forbidden - requested user id does not match with authenticated user id</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.PatchUser(System.String,websolutionsproject.models.Users.PatchUserModel)">
+             <summary>
+             Updates a user password.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PATCH /api/users/{id}
+                 {
+                    "CurrentPassword": "_Azerty123",
+                    "NewPassword": "Azerty123!"
+                 }
+            
+             </remarks>
+             <param name="id"></param>     
+             <param name="patchUserModel"></param>    
+             <response code="204">Returns no content</response>
+             <response code="404">The user could not be found</response> 
+             <response code="400">The id is not a valid Guid or the current password does not match or the new password is not conform the password rules</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - requested user id does not match with authenticated user id</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.DeleteUser(System.String)">
+             <summary>
+             Deletes an user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/users/{id}
+            
+             </remarks>
+             <param name="id"></param>     
+             <response code="204">Returns no content</response>
+             <response code="404">The user could not be found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.Authenticate(websolutionsproject.models.Users.PostAuthenticateRequestModel)">
+             <summary>
+             Authenticates an user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users/authenticate
+                 {
+                    "UserName": "john.doe@moviemind.com",
+                    "Password": "Azerty123"
+                 }
+            
+             </remarks>
+             <param name="postAuthenticateRequestModel"></param>
+             <returns>Details of authenticated user, an JWT token and a refresh token</returns>
+             <response code="200">Returns the authenticated user with tokens</response>
+             <response code="401">Incorrect credentials</response>   
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.RefreshToken">
+             <summary>
+             Renew tokens.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users/refresh-token
+            
+             </remarks>
+             <returns>Details of authenticated user, a new JWT token and a new refresh token</returns>
+             <response code="200">Returns the authenticated user with new tokens</response>
+             <response code="401">Invalid refresh token</response>   
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.RevokeToken(websolutionsproject.models.Users.PostRevokeTokenRequestModel)">
+             <summary>
+             Revoke token.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users/revoke-token
+                 {
+                    "Token": "Some token"
+                 }
+            
+             </remarks>
+             <response code="200">Disables a refresh token</response>
+             <response code="400">No token present in body or cookie</response>   
+             <response code="401">No user found with this token or refresh token is no longer active</response>   
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+        <member name="M:websolutionsproject.api.Controllers.UsersController.GetUserRefreshTokens(System.String)">
+             <summary>
+             Get a list of all refresh tokens of a user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/users/{id}/refresh-tokens
+            
+             </remarks>
+             <returns>List of GetRefreshTokenModel</returns>
+             <response code="200">Returns the list of refresh tokens</response>
+             <response code="404">No refresh tokens were found</response> 
+             <response code="400">The id is not a valid Guid</response> 
+             <response code="401">Unauthorized - Invalid JWT token</response> 
+             <response code="403">Forbidden - Required role assignment is missing</response> 
+        </member>
+    </members>
+</doc>

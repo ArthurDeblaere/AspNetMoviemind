@@ -1,0 +1,42 @@
+﻿@model websolutionsproject.models.Reviews.GetReviewModel
+
+@{
+    ViewData["Title"] = Localizer["Details review"];
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+}
+
+<div class="p-2 border-bottom my-3">
+    <h1><a href="@Url.Action("Details", "Movies", new { id = Model.MovieId })">@Model.Movie.Name</a></h1>
+    <h3 class="my-2">@Localizer["By"] <a href="@Url.Action("Details", "Users", new { id = Model.UserId })">@Html.DisplayFor(modelItem => Model.User.UserName)</a></h3>
+    <p class="text-sm-left">@Localizer["Reviewed on"] @Model.Date.ToString("dd/MM/yyyy")</p>
+    <div class="my-2 rating">
+        @Localizer["Rating"]
+        <div class="my-1 stars">
+            @for (int i = 0; i < Model.Rating; i++)
+            {
+                <span style="color: orange;" class="fa fa-star checked"></span>
+            }
+            @for (int i = 0; i < 10 - Model.Rating; i++)
+            {
+                <span class="fa fa-star"></span>
+            }
+        </div>
+    </div>
+    <p class="thumbnailDescription">@Html.DisplayFor(modelItem => Model.Description)</p>
+</div>
+
+<div class="crudLinks">
+    @if (user.IsInRole("Administrator"))
+    {
+        <a class="btn btn-danger" href="@Url.Action("Delete", "Reviews", new { id = Model.Id })">@Localizer["Delete"]</a>
+        <a class="btn btn-info" href="@Url.Action("Edit", "Reviews", new { id = Model.Id })">@Localizer["Edit"]</a>
+    }
+    else if (user.IsInRole("Editor"))
+    {
+        <a class="btn btn-info" href="@Url.Action("Edit", "Reviews", new { id = Model.Id })">@Localizer["Edit"]</a>
+    }
+</div>
+
+<div>
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back to reviews"]</a>
+</div>

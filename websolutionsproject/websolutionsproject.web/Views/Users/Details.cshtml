@@ -1,0 +1,114 @@
+﻿@model websolutionsproject.models.Users.GetUserModel
+
+@{
+    ViewData["Title"] = Localizer["Details user"];
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+}
+
+<div class="my-2 actionButtons">
+    @if (ViewBag.IsFollower)
+    {
+        <a class="btn btn-info" asp-route-followingId="@Model.Id" asp-action="RemoveFollower" asp-controller="Users">@Localizer["Unfollow"]</a>
+    }
+    else
+    {
+        <a class="btn btn-success" asp-route-followingId="@Model.Id" asp-action="AddFollower" asp-controller="Users">@Localizer["Follow"]</a>
+    }
+</div>
+
+<div class="intro">
+    <h1 class="my-2">@Model.UserName</h1>
+    <h2 class="my-2">@Localizer["Full name"]: @Model.FirstName - @Model.LastName</h2>
+    <p class="my-2"><b>@Localizer["About"]:</b> @Model.Description</p>
+    <p class="my-2">@Model.Followers.Count @Localizer["followers"]</p>
+    <p class="my-2">@Model.Reviews.Count @Localizer["reviews"]</p>
+</div>
+
+<h2>@Localizer["Favorite movies"]</h2>
+<hr />
+@if (Enumerable.Any(Model.Favorites))
+{
+    <ul class="thumbnails">
+        @foreach (GetMovieModel movie in Model.Favorites)
+        {
+            <li class="span4">
+                <div class="thumbnail">
+                    <h3><a href="@Url.Action("Details", "Movies", new { id = movie.Id })">@Html.DisplayFor(modelItem => movie.Name)</a></h3> <h4>@Html.DisplayFor(modelItem => movie.Year)</h4>
+                    <h5>@Localizer["By"] <a href="@Url.Action("Details", "Directors", new { id = movie.DirectorId })">@Html.DisplayFor(modelItem => movie.Director.FirstName) @Html.DisplayFor(modelItem => movie.Director.LastName)</a></h5>
+                    <div class="rating">
+                        @Localizer["Average rating"]
+                        <div class="stars">
+                            @for (int i = 0; i < movie.OverallRating; i++)
+                            {
+                                <span style="color: orange;" class="fa fa-star checked"></span>
+                            }
+                            @for (int i = 0; i < 10 - movie.OverallRating; i++)
+                            {
+                                <span class="fa fa-star"></span>
+                            }
+                        </div>
+                    </div>
+                    <p class="thumbnailDescription">@Html.DisplayFor(modelItem => movie.Description)</p>
+                </div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <h3>@Localizer["This user doesn't have any favorites (yet)!"]</h3>
+}
+
+<h2>@Localizer["Reviews"]</h2>
+<hr />
+@if (Enumerable.Any(Model.Reviews))
+{
+    <ul class="thumbnails">
+        @foreach (GetReviewModel review in Model.Reviews)
+        {
+            <li class="span4">
+                <div class="thumbnail">
+                    <h4><a href="@Url.Action("Details", "Movies", new { id = review.MovieId })">@Html.DisplayFor(modelItem => review.Movie.Name)</a></h4>
+                    <div class="rating">
+                        @Localizer["Rating"]
+                        <div class="stars">
+                            @for (int i = 0; i < review.Rating; i++)
+                            {
+                                <span style="color: orange;" class="fa fa-star checked"></span>
+                            }
+                            @for (int i = 0; i < 10 - review.Rating; i++)
+                            {
+                                <span class="fa fa-star"></span>
+                            }
+                        </div>
+                    </div>
+                    <p class="thumbnailDescription">@Html.DisplayFor(modelItem => review.Description)</p>
+                    @if (user.IsInRole("Guest"))
+                    {
+                        <a class="btn btn-success" href="@Url.Action("Details", "Reviews", new { id = review.Id })">Details</a>
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <h3>@Localizer["This user doesn't have any reviews (yet)!"]</h3>
+}
+
+<div class="crudLinks">
+    @if (user.IsInRole("Administrator"))
+    {
+        <a class="btn btn-danger" href="@Url.Action("Delete", "Users", new { id = Model.Id })">@Localizer["Delete"]</a>
+        <a class="btn btn-info" href="@Url.Action("Edit", "Users", new { id = Model.Id })">@Localizer["Edit"]</a>
+    }
+    else if (user.IsInRole("Editor"))
+    {
+        <a class="btn btn-info" href="@Url.Action("Edit", "Users", new { id = Model.Id })">@Localizer["Edit"]</a>
+    }
+</div>
+
+<div>
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back to users"]</a>
+</div>

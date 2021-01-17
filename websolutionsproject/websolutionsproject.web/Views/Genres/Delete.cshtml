@@ -1,0 +1,16 @@
+﻿@model websolutionsproject.models.Genres.GetGenreModel
+
+@{
+    ViewData["Title"] = Localizer["Delete genre"];
+}
+
+<h3>@Localizer["Are you sure you want to delete this genre?"]</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+
+    <form asp-action="@Localizer["Delete"]">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-info" asp-action="Index">@Localizer["Back to genres"]</a>
+    </form>
+</div>

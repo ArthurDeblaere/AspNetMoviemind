@@ -1,0 +1,19 @@
+﻿@model websolutionsproject.models.Movies.GetMovieModel
+
+@{
+    ViewData["Title"] = Localizer["Delete movie"];
+}
+
+<h1>@Localizer["Delete movie"]</h1>
+
+<h3>@Localizer["Are you sure you want to delete this movie?"]</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Year)</h4>
+    <hr />
+
+    <form asp-action="Delete">
+        <input type="submit" value="@Localizer["Delete"]" class="btn btn-danger" />
+    </form>
+</div>
+
+<a class="btn btn-info" asp-action="Index">@Localizer["Back to movies"]</a>

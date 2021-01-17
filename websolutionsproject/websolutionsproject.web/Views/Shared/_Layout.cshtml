@@ -1,0 +1,84 @@
+﻿@{ 
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+    string id = HttpContextAccessor.HttpContext.Session.GetString("_Id");
+    string firstname = HttpContextAccessor.HttpContext.Session.GetString("_FirstName");
+    var requestPath = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+    var requestQueryString = Context.Request.QueryString.HasValue ? Context.Request.QueryString.Value : "";
+    var returnUrl = requestPath + requestQueryString;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MovieMind</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieMind</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @Localizer["Resources"]
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Movies" asp-action="Index">@Localizer["Movies"]</a>
+                        <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Actors" asp-action="Index">@Localizer["Actors"]</a>
+                        <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Directors" asp-action="Index">@Localizer["Directors"]</a>
+                        <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Genres" asp-action="Index">Genres</a>
+                        <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Users" asp-action="Index">@Localizer["Users"]</a>
+                        <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Reviews" asp-action="Index">@Localizer["Reviews"]</a>
+                    </div>
+                </div>
+                <form class="form-inline" asp-controller="Search" asp-action="Index">
+                    <input class="form-control mr-sm-2" name="SearchString" type="search" placeholder="@Localizer["Search"]" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@Localizer["Search"]</button>
+                </form>
+                @if (user.IsInRole("Guest"))
+                {
+                   
+                    <a class="nav-link text-dark" asp-route-id="@id" asp-controller="Users" asp-action="Details">@Localizer["My profile"]</a>
+                   
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Logout">@Localizer["Logout"]</a>
+                    
+                }
+                else
+                {
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Login">@Localizer["Login"]</a>
+                }
+                <form id="setLanguage" asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" class="form-inline">
+                    <div id="setlanguage" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                        <input name="culture" type="submit" value="NL" class="btn btn-link"><span>|</span>
+                        <input name="culture" type="submit" value="EN" class="btn btn-link">
+                    </div>
+                </form>                
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - websolutionsproject.web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

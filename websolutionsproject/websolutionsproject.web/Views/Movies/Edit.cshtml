@@ -1,0 +1,91 @@
+﻿@model websolutionsproject.models.Movies.PutMovieModel
+
+@{
+    ViewData["Title"] = Localizer["Edit movie"];
+}
+
+<h1>@Localizer["Edit movie"]</h1>
+
+<div class="border-bottom mb-2">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Year" class="control-label"></label>
+            <input type="number" asp-for="Year" class="form-control" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <textarea rows="4" asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Duration" class="control-label"></label>
+            <input type="number" min="0" max="500" asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        @if (ViewBag.Directors != null)
+        {
+        <div class="form-group">
+            <label asp-for="DirectorId" class="control-label"></label>
+            <select asp-for="DirectorId" class="form-select">
+                @foreach (var director in ViewBag.Directors)
+                {
+                    if (Model.DirectorId == director.Id)
+                    {
+                        <option selected value="@director.Id">@director.FirstName @director.LastName</option>
+                    }
+                    else
+                    {
+                        <option value="@director.Id">@director.FirstName @director.LastName</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="DirectorId" class="text-danger"></span>
+        </div>
+        }
+        @if (ViewBag.Genres != null)
+        {
+            <div class="form-group">
+                <label asp-for="GenreId" class="control-label"></label>
+                <select asp-for="GenreId" class="form-select">
+                    @foreach (var genre in ViewBag.Genres)
+                    {
+                        if (Model.GenreId == genre.Id)
+                        {
+                            <option selected value="@genre.Id">@genre.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@genre.Id">@genre.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="GenreId" class="text-danger"></span>
+            </div>
+        }
+    <div class="form-group">
+        <label asp-for="ActorIds" class="control-label"></label>
+        <select class="multiselect" asp-for="ActorIds" multiple>
+            @await Component.InvokeAsync("ActorsSelect")
+        </select>
+    </div>
+        <div class="form-group">
+            <input type="submit" value="@Localizer["Save"]" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back to movies"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<websolutionsproject.models.Reviews.GetReviewModel>
+
+@{
+    ViewData["Title"] = Localizer["Home Page"];
+    ClaimsPrincipal user = HttpContextAccessor.HttpContext.User;
+}
+
+<div class="p-3 my-3 text-center">
+    <h1 class="display-4">@Localizer["Welcome to MovieMind"]</h1>
+
+    <figure class="p-3 border-left mx-xl-2">
+        <blockquote class="blockquote">
+            <i>
+                The older I get, the more I look at movies as a moving miracle. Audiences are harder to please if you're
+                just giving them special effects... but they're easy to please if it's a good story.
+            </i>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            Steven Spielberg
+        </figcaption>
+    </figure>
+</div>
+
+<h2 class="my-4">@Localizer["Reviews from users you follow"]</h2>
+<hr />
+
+@if (Enumerable.Any(Model))
+{
+    <ul class="thumbnails">
+        @foreach (GetReviewModel review in Model)
+        {
+            <li class="span4">
+                <div class="thumbnail">
+                    <h3><a href="@Url.Action("Details", "Movies", new { id = review.MovieId })">@review.Movie.Name</a></h3>
+                    <h4>@Localizer["By"] <a href="@Url.Action("Details", "Users", new { id = review.UserId })">@Html.DisplayFor(modelItem => review.User.UserName)</a></h4>
+                    <div class="rating">
+                        @for (int i = 0; i < review.Rating; i++)
+                        {
+                            <span style="color: orange;" class="fa fa-star checked"></span>
+                        }
+                        @for (int i = 0; i < 10 - review.Rating; i++)
+                        {
+                            <span class="fa fa-star"></span>
+                        }
+                    </div>
+                    <p class="thumbnailDescription">@Html.DisplayFor(modelItem => review.Description)</p>
+                    <p class="text-sm-left">@Localizer["Reviewed on"] @review.Date.ToString("dd/MM/yyyy")</p>
+
+                    @if (user.IsInRole("Administrator"))
+                    {
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Reviews", new { id = review.Id })">@Localizer["Delete"]</a>
+                        <a class="btn btn-info" href="@Url.Action("Edit", "Reviews", new { id = review.Id })">@Localizer["Edit"]</a>
+                        <a class="btn btn-success" href="@Url.Action("Details", "Reviews", new { id = review.Id })">Details</a>
+                    }
+                    else if (user.IsInRole("Editor"))
+                    {
+                        <a class="btn btn-info" href="@Url.Action("Edit", "Reviews", new { id = review.Id })">@Localizer["Edit"]</a>
+                        <a class="btn btn-success" href="@Url.Action("Details", "Reviews", new { id = review.Id })">Details</a>
+                    }
+                    else if (user.IsInRole("Guest"))
+                    {
+                        <a class="btn btn-success" href="@Url.Action("Details", "Reviews", new { id = review.Id })">Details</a>
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+
+}
+else
+{
+    <h4>@Localizer["The users you follow don't have reviews (yet)!"]</h4>
+}
+
+
+
+

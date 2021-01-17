@@ -1,0 +1,9 @@
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\bin\Debug\netstandard2.0\websolutionsproject.shared.deps.json
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\bin\Debug\netstandard2.0\websolutionsproject.shared.dll
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\bin\Debug\netstandard2.0\websolutionsproject.shared.pdb
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\obj\Debug\netstandard2.0\websolutionsproject.shared.csprojAssemblyReference.cache
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\obj\Debug\netstandard2.0\websolutionsproject.shared.AssemblyInfoInputs.cache
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\obj\Debug\netstandard2.0\websolutionsproject.shared.AssemblyInfo.cs
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\obj\Debug\netstandard2.0\websolutionsproject.shared.csproj.CoreCompileInputs.cache
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\obj\Debug\netstandard2.0\websolutionsproject.shared.dll
+C:\Users\arthu\Documents\School\Odisee\2021S1\.Net Web Solutions\Labo\2021projectnetwebsolutions\websolutionsproject\websolutionsproject.shared\obj\Debug\netstandard2.0\websolutionsproject.shared.pdb
