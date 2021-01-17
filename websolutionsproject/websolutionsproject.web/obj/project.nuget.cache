@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kmc3s7IGe/NOCe7YR4wQ1iIIK65gGPA38MnMXDm8bwmiALNwrltadLjS1hJs0FfzLrpbEma5FGJZBADp3ZqepQ==",
+  "dgSpecHash": "Aj9MIgOKLv5MRTQUWwyz7p4LykT91HJEGcQ4HZT0+fUzSFbzc6rj5yVr21Rb50CIgUc2M02r75NWhQj/c9PF6g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.web\\websolutionsproject.web.csproj",
+  "projectFilePath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.web\\websolutionsproject.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

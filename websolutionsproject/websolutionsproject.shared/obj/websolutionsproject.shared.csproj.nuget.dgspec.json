@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj": {}
+    "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj": {
+    "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj",
         "projectName": "websolutionsproject.shared",
-        "projectPath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj",
+        "projectPath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\obj\\",
+        "outputPath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

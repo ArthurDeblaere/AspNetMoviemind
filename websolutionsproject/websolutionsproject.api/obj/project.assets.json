@@ -7051,11 +7051,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.api\\websolutionsproject.api.csproj",
+      "projectUniqueName": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.api\\websolutionsproject.api.csproj",
       "projectName": "websolutionsproject.api",
-      "projectPath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.api\\websolutionsproject.api.csproj",
+      "projectPath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.api\\websolutionsproject.api.csproj",
       "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.api\\obj\\",
+      "outputPath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -7075,11 +7075,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.models\\websolutionsproject.models.csproj": {
-              "projectPath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.models\\websolutionsproject.models.csproj"
+            "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.models\\websolutionsproject.models.csproj": {
+              "projectPath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.models\\websolutionsproject.models.csproj"
             },
-            "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj": {
-              "projectPath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj"
+            "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj": {
+              "projectPath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj"
             }
           }
         }

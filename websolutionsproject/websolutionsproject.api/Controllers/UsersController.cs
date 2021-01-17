@@ -46,7 +46,7 @@ namespace websolutionsproject.api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize(Roles = "Editor")]
+        [Authorize(Roles = "Guest")]
         public async Task<ActionResult<List<GetUserModel>>> GetUsers()
         {
             return await _userRepository.GetUsers();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K+uxxm4TwjejlCtDFNYiWNJ7CKdHC3/ZFp2zf0yju1XiKwjCsPe4Jnx/nfGpoyYKsqbyMo+IUyfA2+iXDy0LXQ==",
+  "dgSpecHash": "yKpbTLJIdEoqL5hYSMg3b5tNBlpvH9QYzfB6x7RRHiHtBoj0MS1dIs45oIztuM6Yki2u38RdFcvkPTOmcjNtaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\arthu\\Documents\\School\\Odisee\\2021S1\\.Net Web Solutions\\Labo\\2021projectnetwebsolutions\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj",
+  "projectFilePath": "C:\\Users\\arthu\\Documents\\GitRepo\\AspNetMoviemind\\websolutionsproject\\websolutionsproject.shared\\websolutionsproject.shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

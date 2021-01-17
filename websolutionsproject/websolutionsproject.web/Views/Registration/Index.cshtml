@@ -2,10 +2,19 @@
 
 @model PostUserModel
 
-@{ 
+@{
     ViewData["Title"] = Localizer["Registrate"];
+    var requestPath = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+    var requestQueryString = Context.Request.QueryString.HasValue ? Context.Request.QueryString.Value : "";
+    var returnUrl = requestPath + requestQueryString;
 }
 
+<form id="setLanguage" asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" class="form-inline">
+    <div id="setlanguage" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+        <input name="culture" type="submit" value="NL" class="btn btn-link"><span>|</span>
+        <input name="culture" type="submit" value="EN" class="btn btn-link">
+    </div>
+</form>
 <form class="mt-3 form-signin" asp-action="Index">
     <h1 class="h4 mb-3 font-weight-normal">MovieMind - @Localizer["Registrate"]</h1>
     @if (TempData.ContainsKey("ApiError"))
@@ -48,7 +57,7 @@
         <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="@Localizer["Repeat password"]" />
         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     </div>
-    
+
     <button class="btn btn-lg btn-outline-primary btn-block" type="submit">@Localizer["Registrate"]</button>
     <hr />
     <h3>@Localizer["Already an account?"]</h3>

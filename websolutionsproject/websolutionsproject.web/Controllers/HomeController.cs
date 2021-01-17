@@ -54,9 +54,31 @@ namespace websolutionsproject.web.Controllers
             {
                 AuthorizeHelper.Authorize(this.HttpContext, "Guest", this.GetType().Name, "Index", "home");
 
+                List<GetMovieModel> getMovieModels = await _moviemindAPIService.GetModels<GetMovieModel>("movies");
+                List<GetUserModel> getUserModels = await _moviemindAPIService.GetModels<GetUserModel>("users");
                 List<GetReviewModel> getReviewModels = await _moviemindAPIService.GetModels<GetReviewModel>("reviews");
 
-                return View(getReviewModels);
+                var userId = HttpContext.Session.GetString("_Id");
+                var user = await _moviemindAPIService.GetModel<GetUserModel>(userId, "users");
+
+                List<GetReviewModel> followerReviews = new List<GetReviewModel>();
+
+                foreach (GetUserModel userModel in getUserModels)
+                {
+                    foreach (GetUserModel getFollower in userModel.Followers)
+                    {
+                        if (getFollower.Id == user.Id)
+                        {
+                            List<GetReviewModel> reviews = (from review in getReviewModels
+                                                            where review.UserId == userModel.Id
+                                                            select review).ToList();
+
+                            followerReviews.AddRange(reviews);
+                        }
+                    }
+                }
+
+                return View(followerReviews);
 
             }
             catch (MovieMindException e)
